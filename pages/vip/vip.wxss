@@ -1,0 +1,110 @@
+Page{
+  background: white;
+}
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0rpx;
+  align-items: stretch;
+}
+.top_view{
+  width: 100%;
+  height: 275rpx;
+  background: rgba(243,92,92,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top_label{
+  font-size: 55rpx;
+  font-family: PingFangSC-Semibold;
+  color: rgba(255,255,255,1);
+  line-height: 66rpx;
+}
+.top_backgroun_image{
+  width: 100%;
+  height: 275rpx;
+  margin-top: -275rpx;
+}
+.way_label{
+  margin-left: 24rpx;
+  margin-top: 54rpx;
+  font-size: 40rpx;
+  font-family: PingFangSC-Semibold;
+  color: rgba(48,52,55,1);
+  line-height: 56rpx;
+}
+.method_label{
+  margin-top: 24rpx;
+  margin-left: 24rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(48,52,55,1);
+  line-height: 57rpx;
+}
+.copy_wechat_number{
+  margin-top: 24rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  height: 60rpx;
+  background:rgba(26,173,25,1);
+  border-radius: 6rpx; 
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(255,255,255,1);
+  line-height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wechat_number{
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(255,255,255,1);
+  line-height: 60rpx;
+}
+.input_content_view{
+  margin-top:30%;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  display: flex;
+  flex-direction: row;
+}
+.input_view{
+  height: 60rpx;
+  background: rgba(239,239,239,1);
+  border-radius: 6rpx;
+  width: 90%; 
+  margin: auto;
+}
+.input{
+  margin-left: 24rpx;
+  background: rgba(239,239,239,1);
+  border-radius: 6rpx;
+  width: 502rpx;
+  height: 100%;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  color:rgba(142,142,147,1);
+  line-height: 37rpx;
+}
+.input_placeholder{
+  font-size: 40rpx;
+  font-family: PingFangSC-Regular;
+  color:rgba(142,142,147,1);
+  line-height: 37rpx;
+}
+.exchange_button{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20rpx;
+  width: 400rpx;
+  height: 60rpx;
+  background: rgba(243,92,92,1);
+  border-radius: 6rpx; 
+  font-size: 40rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(255,255,255,1);
+  line-height: 60rpx;
+}

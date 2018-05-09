@@ -1,0 +1,19 @@
+.content{
+  width: 90%;
+  min-height: 200rpx;
+  margin: auto;
+  display: flex;
+  outline: gainsboro inset thin;
+  font-size: 40rpx;
+}
+.c-c{
+  width: 100%;
+}
+.b-c{
+  width: 50%;
+  display: flex;
+  margin-top: 30rpx
+}
+.submit-it{
+  background: red;
+}

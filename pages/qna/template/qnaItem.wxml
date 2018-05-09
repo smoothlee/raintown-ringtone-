@@ -1,0 +1,10 @@
+<template name="qna-item">
+  <view class="qna-card">
+      <view class="q-t-c">
+        <text class="qna-title">{{item.title}}</text>
+      </view>
+      <view class="q-c-c">
+        <text class="qna-content">{{item.text}}</text>
+      </view>
+    </view>
+</template>

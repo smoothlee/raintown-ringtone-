@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="c-c">
+    <textarea class="content" placeholder='在此输入>>>' bindinput='inputValue' focus='true' auto-height='true'></textarea>
+  </view>
+  <view class="b-c">
+    <button class="weui-btn" type="primary" bindtap="submitIt" plain="true">确认提交</button>
+  </view>
+</view>

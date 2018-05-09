@@ -1,0 +1,40 @@
+<template name="pp">
+  <view id="pageplay" wx:if="{{from_share}}" bindtap="{{playing ? '': 'togglePlay'}}" data-music="{{music}}">
+    <view class="ringtone-item-cover-container" bindtap="toggleStop" data-music="{{music}}">
+      <image class="ringtone-item-cover" src="{{music.icon || '../../image/de.png'}}" mode="aspectFill" style='margin-top: 26rpx'/>
+      <image src="../../image/stop.png" id="pp_playing2" style='margin-top:26rpx' wx:if='{{playing}}'/>
+		</view>
+
+    <view class="pp-tool-bar" wx:if='{{playing}}'>
+      <view class='icon-container' hover-class="ripple tada" hover-start-time="1" bindtap='addService' data-du='{music.download_url}}' style='z-index:101'>
+        <image src='../../image/download.png' class='item-icon' ></image>
+        <text class='icon-description'  style="left:16rpx">设铃声</text>
+      </view>
+      <view class='icon-container' hover-class="ripple tada" hover-start-time="1" bindtap='addService2' style='z-index:101'>
+        <image src='../../image/set.png' class='item-icon' ></image>
+        <text class='icon-description'  style="left:16rpx">设彩铃</text>
+      </view>  
+      <view class='icon-container' hover-class="ripple tada" hover-start-time="1" style='z-index:101'>
+        <image src='../../image/share.png' class='item-icon'></image>
+        <text class='icon-description' style="left:16rpx">分享</text>
+        <button class="share-button" open-type="share" data-fn='{{item.fullname}}'></button>
+      </view>
+    </view>
+    <view class="ringtone-item-info-bar"  wx:if='{{!playing }}' style="width: 554rpx;float: right;margin-right:0;margin-left: auto;height: 128rpx;">
+      <view class="ringtone-item-title">
+        <text style='height:45rpx;width:473rpx;text-overflow:ellipsis'>{{music.name}}</text>
+      </view>
+      <view class="ringtone-item-author-name">
+        <view class='ringtone-item-author-name-name'>
+          <text>{{music.author=='appwill' ? "用户上传" : mucis.author || "网络"}}</text>
+        </view>
+        <view class="ringtone-item-author-name-duration">
+          <text>{{music.duration}}s</text>
+        </view>
+        
+      </view>
+    </view>
+    <view class='progress-bar2' style='width:{{(position/music.duration)*554}}rpx' wx:if='{{playing}}'></view>
+	</view>
+ 
+</template>

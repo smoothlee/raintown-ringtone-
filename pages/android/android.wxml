@@ -1,0 +1,1 @@
+<button class="weui-btn" type="primary" bindtap="copyLink" style='width:80%;margin-top:400rpx'>点击此按钮复制链接在浏览器中打开，即可下载铃声</button>

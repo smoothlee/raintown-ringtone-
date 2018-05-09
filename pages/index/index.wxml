@@ -1,0 +1,78 @@
+<import src="../../templates/loading.wxml" />
+<import src="../../templates/image.wxml" />
+<import src="../../templates/pageplay.wxml" />
+<import src="../../templates/ringtoneItem.wxml"/>
+<import src="../../templates/myModal.wxml"/>
+<import src="../../templates/myModal2.wxml"/>
+<template is="pp" data="{{music:music,playing:playing,position:position,from_share:from_share, animationData:animationData}}"/>
+<!--ringtones.wxml-->
+<scroll-view class="scroll-view" lower-threshold="150" style="width:{{windowWidth}}px;backgroundColor:#fcf;" scroll-y="true" bindscrolltoupper="pullDownRefresh">
+  <view class="weui-search-bar" >
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm='search'/>
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14" style="float: left; margin-left:20rpx"></icon>
+        <view class="weui-search-bar__text" style="float: left; margin-left:0rpx">搜索</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+  </view>
+    <!--SEARCH-->
+<!--
+    <view class="search-container">
+        <view class="search-background" bindtap='toHotSearch'>
+            <icon class="search-icon" bindtap="searchClickEvent" type="search" size="20" />
+            <label class='search-label'>输入搜索关键词</label>
+        </view>
+    </view>
+-->
+    <!--BANNER HERE--> 
+    <view class='horizontal_content_view'>
+        <scroll-view class='horizontal_scroll_view' scroll-x='true'>
+            <block wx:for='{{bannerData}}'>
+                <image class='banner_image' mode='aspectFill' src='{{item.contentInfo.params.wp_banner_img}}' bindtap='bannerTap' data-current-index='{{index}}'>
+                </image>
+            </block>
+            <image src="../../image/block.png" style='height:100%;width:28rpx;'></image>
+        </scroll-view>
+    </view>
+    <!--HOT CONTAINER-->
+    <view class="hot_container" hidden='{{isInReview}}'>
+        <form bindsubmit='bindTapHotPage' report-submit='true'>
+            <view class="hot_page_content">
+                <block wx:for="{{hotPages}}" wx:key="idx" wx:for-index="idx" wx:for-item="currentItem" >
+                    <view class="hot_page_text_content_{{idx+1}}" hover-class="ripple pulse">
+                        <text class="hot_page_text">{{currentItem['title']}}</text>
+                        <button class='hot_page_button' form-type='submit' data-current-index="{{idx}}"></button>
+                    </view>
+                </block>
+            </view>
+        </form>
+    </view>
+
+    <!--RINGTONES HERE-->
+    <view class="ringtone_list_container">
+        <block wx:for="{{ringtones}}" wx:for-index="idx" wx:key="{{id}}">
+            <view class="single-item-container">
+                <template is="ringtone-item" data="{{item: item, currentId: currentId, playing: playing, position: position, animationData:animationData}}"/>
+            </view>
+        </block>
+    </view>
+  
+
+    <!--MORE-->
+    <view class="loading_more">
+        <text class="loading_more_text">{{loadtxt}}</text>
+    </view>
+
+</scroll-view>
+    <image class='scroll_top_image' src='../../image/scroll_top.png' bindtap='scrollToTop' wx:if='{{page>2}}'></image>
+     <image class='scroll_top_image' src='../../image/service.png' bindtap='copyWxid' style='bottom:20rpx;'></image>
+<template is="myModal" wx:if="{{showModal==1}}"/>
+<template is="myModal2" wx:if="{{showModal==2}}"/>

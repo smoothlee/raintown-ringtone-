@@ -1,0 +1,16 @@
+<import src="template/qnaItem.wxml"/>
+<import src="template/qnaListItem.wxml"/>
+<view class="container" style='padding:0'>
+  <block wx:for="{{QNAs}}"  wx:for-index="idx" wx:for-item="item" >
+    <template is="qna-item" data="{{item: item}}"/>
+  </block>
+  <navigator url="../feedback/feedback" style='margin-top:50rpx;'><button class="weui-btn" type="default" style='font-size:24rpx'>仍没有解决您的问题？点此反馈给我们</button></navigator>
+  <!--
+  <view class='kind-list'> 
+    <block wx:for="{{QNAs}}"  wx:for-index="idx" wx:for-item="item" >
+      <template is="qna-list-item" data="{{item: item, idx:idx}}"/>
+    </block>
+  </view>
+  -->
+</view>
+

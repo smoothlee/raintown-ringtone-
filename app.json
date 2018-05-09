@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/hotSearch/hotSearch",
+    "pages/vip/vip",
+    "pages/mine/mine",
+    "pages/qna/qna",
+    "pages/searchResult/searchResult",
+    "pages/feedback/feedback",
+    "pages/activity/activity",
+    "pages/android/android",
+    "pages/pageDetail/pageDetail",
+    "pages/tutorial/tutorial"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#2c2d31",
+    "navigationBarTitleText": "铃声大全",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "selectedColor": "#000000",
+    "color": "#808180",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "image/index.png",
+      "selectedIconPath": "image/index_selected.png"
+    },
+    {
+      "pagePath": "pages/mine/mine",
+      "text": "我的",
+      "iconPath": "image/mine.png",
+      "selectedIconPath": "image/mine_selected.png"
+    }]
+  }
+}

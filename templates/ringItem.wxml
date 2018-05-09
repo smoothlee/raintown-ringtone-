@@ -1,0 +1,8 @@
+<template name="ring-item">
+    
+    <view class="ring-item-container" bindtap='togglePlay' data-music="{{item}}" hidden='{{currentId==item.fullname && playing==true}}'>
+    </view>
+    
+    <view class="ringtone-item-container" hidden='{{!(item.fullname==currentId && playing==true)}}' bindtap='toggleStop' data-music='{{item}}'>
+    </view>
+</template>

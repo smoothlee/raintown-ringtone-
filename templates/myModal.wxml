@@ -1,0 +1,15 @@
+<template name="myModal">
+  <view class="modal-mask" bindtap='hideModal'></view>
+  <view class="modal-dialog" >
+    <image class='btn-close' bindtap='hideModal' src='../../image/cha.png' hover-class="close-hover"/>
+    <view class="modal-title">设置铃声方式</view>
+    <view class="modal-content">
+      <text class='modal-txt'>1.加客服微信\n</text>
+      <text style='text-align: center;font-size: 30rpx;color: rgba(136,136,136,1)'>2.复制铃声信息给客服</text>
+    </view>
+    <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" hover-class='cancel-hover' hover-start-time="1"><text style='position:relative;top:-5rpx' >加客服微信</text></view>
+    <view class="btn-confirm" bindtap="onConfirm" hover-class='confirm-hover' hover-start-time='1'><text style='position:relative;top:-5rpx' >复制铃声信息</text></view>
+    </view>
+  </view>
+</template>

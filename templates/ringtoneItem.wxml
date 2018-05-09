@@ -1,0 +1,68 @@
+<wxs module="split">
+  function name(str){
+    return str.split("-")[0];
+  };
+  function desc(str){
+    return str.split("-")[1];
+  }
+  module.exports.name=name;
+  module.exports.desc=desc;
+</wxs>
+<template name="ringtone-item">
+<!--common-->
+  <view class="ringtone-item-container" hidden='{{currentId==item.fullname && playing==true && position < item.duration}}' bindtap='togglePlay' data-music='{{item}}'>
+    <view class='ringtone-item-cover-container'>
+      <image class="ringtone-item-cover" src="{{item.icon || '../../image/de.png'}}"></image>
+    </view>
+    
+    <view class="ringtone-item-info-bar" >
+      <view class="ringtone-item-title">
+        <text style='height:45rpx;max-width:473rpx;text-overflow:ellipsis'>{{split.name(item.name)}}</text>
+        <text style='color:#999999;font-size:26rpx'> · {{split.desc(item.name)}}</text>
+      </view>
+      <view class="ringtone-item-author-name">
+        <view class='ringtone-item-author-name-name'>
+          <text>{{item.author=='appwill' ? "用户上传" : item.author || "网络"}}</text>
+        </view>
+        <view class="ringtone-item-author-name-duration">
+          <text>{{item.duration}}s</text>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+
+<!--playing-->
+<view hidden='{{item.fullname != currentId || playing!=true || position>=item.duration}}' style="margin-bottom:2rpx;">
+  <view class="ringtone-item-container" hidden='{{!(item.fullname==currentId && playing==true)}}' bindtap='toggleStop' data-music='{{item}}'>
+    <view class="ringtone-item-cover-container" bindtap="toggleStop" data-music="{{item}}">
+      <image class="ringtone-item-cover" src="{{item.icon || '../../image/de.png'}}" mode="aspectFill" />
+      <image id='pa-pause' src="../../image/stop.png" id="pp_playing2" />
+		</view>
+  
+    <!--<view class="ringtone-item-tool-bar ripple slideInRight">-->
+    <view class="ringtone-item-tool-bar">
+      <!--<view class='icon-container' bindtap='downloadThisRingtone' data-du='{{item.download_url}}' hover-class="ripple tada" hover-start-time="1">-->
+      <view class='icon-container' bindtap='addService' data-fn='{{item.fullname}}' hover-class="ripple tada" hover-start-time="1">
+        <image src='../../image/download.png' class='item-icon'></image>
+        <text class='icon-description'>设铃声</text>
+      </view>
+
+      <view class='icon-container' bindtap='addService2' hover-class="ripple tada" hover-start-time="1">
+        <image src='../../image/set.png' class='item-icon'></image>
+        <text class='icon-description'>设彩铃</text>
+      </view>
+  
+      <view class='icon-container' hover-class="ripple tada" hover-start-time="1">
+        <image src='../../image/share.png' class='item-icon'></image>
+        <text class='icon-description'>分享</text>
+        <button class="share-button" open-type="share" data-fn='{{item.fullname}}'></button>
+      </view>
+    </view>
+  </view>
+  <!--<view class='progress-bar'  style='/*width:{{(position/item.duration)*600}}rpx*/' animation="{{animationData}}">-->
+  <view class='progress-bar'  style='width:{{(position/item.duration)*600}}rpx' hidden='{{(!(item.fullname==currentId && playing==true)) || position>item.duration}}'>
+  </view>
+</view>
+  
+</template>

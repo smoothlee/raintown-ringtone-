@@ -1,0 +1,23 @@
+<import src="../../templates/pageplay.wxml" />
+<import src="../../templates/ringtoneItem.wxml"/>
+<import src="../../templates/myModal.wxml"/>
+<import src="../../templates/myModal2.wxml"/>
+<template is="pp" data="{{music:music,playing:playing, position:position,from_share:from_share}}" />
+<scroll-view class="scroll-view" lower-threshold="150" style="width:{{windowWidth}}px;backgroundColor:#fcf;" scroll-y="true" bindscrolltoupper="pullDownRefresh">
+  <view class="ringtone_list_container">
+        <block wx:for="{{ringtones}}" wx:for-index="idx" wx:key="{{id}}">
+            <view class="single-item-container">
+                <template is="ringtone-item" data="{{item: item, currentId: currentId, playing: playing, position:position}}" wx:if='{{item.url}}'/>
+            </view>
+        </block>
+    </view>
+    <!--MORE-->
+    <view class="loading_more">
+        <text class="loading_more_text">{{loadMoreText}}</text>
+    </view>
+    
+</scroll-view>
+    <image class='scroll_top_image' src='../../image/scroll_top.png' bindtap='scrollToTop' wx:if='{{page>2}}' style="bottom:180rpx"></image>
+     <image class='scroll_top_image' src='../../image/service.png' bindtap='copyWxid' style='bottom:60rpx;'></image>
+<template is="myModal" wx:if="{{showModal==1}}"/>
+<template is="myModal2" wx:if="{{showModal==2}}"/>

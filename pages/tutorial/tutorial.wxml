@@ -1,0 +1,32 @@
+<!--pages/tutorial/tutorial.wxml-->
+<view class="container" style='background:#f3f5fa;padding:0'>
+  <view class="header_view">
+
+  </view>
+  <view class="content_view" >
+    <view class="page__bd page__bd_spacing">
+      <view class="kind-list">
+        <block wx:for="{{faqs}}" wx:key="id">
+          <view class="kind-list__item">
+            <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+              <view class="weui-flex__item">{{item.title}}</view>
+               <image class="kind-list__img" src="../../image/more.png"></image> 
+            </view>
+            <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
+              <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
+                <!-- <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this"> -->
+                  <navigator url="{{page}}/{{page}}" class="weui-cell weui-cell_access">
+                    <view class="weui-cell__bd">{{item.text}}</view>
+                  </navigator>
+                <!-- </block> -->
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='bottom_view'>
+  </view>
+   <image class='scroll_top_image' src='../../image/service.png' bindtap='copyWxid' style='bottom:80rpx;'></image>
+</view>

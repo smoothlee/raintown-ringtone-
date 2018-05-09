@@ -1,0 +1,8 @@
+<view class="container">
+  <view class='input_content_view'>
+    <view class='input_view'>
+      <input class='input' placeholder='输入手机号' placeholder-class='input_placeholder' bindinput='inputValue'></input>
+    </view>
+  </view>
+  <button class='exchange_button' open-type='contact' session-from='weapp'>开通包月</button>
+</view>
